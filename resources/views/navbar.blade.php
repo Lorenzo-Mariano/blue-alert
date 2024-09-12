@@ -2,9 +2,9 @@
 <link rel="stylesheet" href="{{ asset('css/components/navbar.css') }}">
 
 <nav>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Blog</a>
-    <a href="#">Infographics</a>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/blog">Blog</a>
+    <a href="/infographics">Infographics</a>
     <a href="/get-involved">Get Involved</a>
 </nav>

@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    @include('navbar')
     <form action="">
         <h1>Sign Up and Login here</h1>
     </form>

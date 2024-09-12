@@ -6,5 +6,5 @@
     <a href="#">About</a>
     <a href="#">Blog</a>
     <a href="#">Infographics</a>
-    <a href="#">Get Involved</a>
+    <a href="/get-involved">Get Involved</a>
 </nav>

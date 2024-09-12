@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    @vite(['resources/css/app.css', 'public/css/welcome.css'])
+    @vite(['resources/css/app.css', 'public/css/pages/welcome.css'])
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blue Alert - Prevent Ocean Waste</title>

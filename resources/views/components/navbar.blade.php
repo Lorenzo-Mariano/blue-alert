@@ -1,5 +1,4 @@
-@vite(['resources/css/app.css', 'resources/js/app.js'])
-<link rel="stylesheet" href="{{ asset('css/components/navbar.css') }}">
+@vite(['resources/css/app.css', 'public/css/components/navbar.css'])
 
 <nav>
     <a href="/">Home</a>

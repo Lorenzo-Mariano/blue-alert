@@ -5,3 +5,25 @@
   margin: 0;
   padding: 0;
 }
+
+dialog {
+  border: unset;
+}
+
+input {
+  border: 1px solid gray;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+}
+
+input:focus-visible {
+  outline: none;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+}

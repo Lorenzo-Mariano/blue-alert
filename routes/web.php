@@ -10,6 +10,10 @@ Route::get('/blog', function () {
     return view('pages.blog');
 });
 
+Route::get('/infographics', function () {
+    return view('pages.infographics');
+});
+
 Route::get('/get-involved', function () {
     return view('pages.get-involved');
 });

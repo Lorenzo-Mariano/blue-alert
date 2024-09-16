@@ -1,0 +1,33 @@
+.blog-preview {
+  flex: 1 0 300px;
+
+  display: flex;
+  flex-direction: column;
+
+  color: inherit;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.blog-preview:hover {
+  border: 2px solid #0f457a;
+}
+
+.blog-preview>a>img {
+  max-width: 100%;
+}
+
+.blog-preview>a>.title {
+  color: black;
+  text-decoration: none;
+  padding: 1rem;
+}
+
+.blog-preview>a:visited {
+  color: black;
+  text-decoration-color: white;
+}
+
+
+.blog-preview>a:visited>h2 {
+  color: #001130;
+}

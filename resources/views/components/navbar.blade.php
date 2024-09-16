@@ -2,7 +2,7 @@
 
 <nav>
     <a href="/">Home</a>
-    <a href="/blog">Blog</a>
+    <a href="/articles">Articles</a>
     <a href="/infographics">Infographics</a>
     <a href="/get-involved">Get Involved</a>
 </nav>

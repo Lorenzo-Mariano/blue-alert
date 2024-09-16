@@ -6,8 +6,8 @@ Route::get('/', function () {
     return view('pages.welcome');
 });
 
-Route::get('/blog', function () {
-    return view('pages.blog');
+Route::get('/articles', function () {
+    return view('pages.articles');
 });
 
 Route::get('/infographics', function () {

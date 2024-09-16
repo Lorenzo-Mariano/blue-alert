@@ -50,8 +50,8 @@
                 resources highlight key data, showcase the effects of plastic pollution, and offer actionable steps we
                 can
                 all take to mitigate this crisis.</p>
-            <img src="https://example.com/infographic1.jpg" alt="Infographic 1">
-            <img src="https://example.com/infographic2.jpg" alt="Infographic 2">
+                <img src="{{ asset('images/blue.jpg') }}" alt="Infographic 1">
+            <img src="{{ asset('images/blue2.jpg') }}" alt="Infographic 2">
         </section>
 
         <section class="cta">
@@ -62,7 +62,7 @@
                 spreading the message to others—everyone has a role to play. Join us in our mission to protect the
                 oceans
                 and secure a sustainable future for the Philippines.</p>
-            <a href="#">Sign Up</a>
+            <a href="get-involved">Sign Up</a>
         </section>
 
         <footer>

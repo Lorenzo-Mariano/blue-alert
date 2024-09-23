@@ -49,6 +49,7 @@
             </section>
         </div>
     </main>
+    @include('components.footer')
 </body>
 
 </html>

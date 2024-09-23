@@ -24,6 +24,7 @@
             @include('components.article-preview')
         </div>
     </main>
+    @include('components.footer')
 </body>
 
 </html>

@@ -50,7 +50,7 @@
                 resources highlight key data, showcase the effects of plastic pollution, and offer actionable steps we
                 can
                 all take to mitigate this crisis.</p>
-                <img src="{{ asset('images/blue.jpg') }}" alt="Infographic 1">
+            <img src="{{ asset('images/blue.jpg') }}" alt="Infographic 1">
             <img src="{{ asset('images/blue2.jpg') }}" alt="Infographic 2">
         </section>
 
@@ -65,12 +65,8 @@
             <a href="get-involved">Sign Up</a>
         </section>
 
-        <footer>
-            <p>&copy; 2024 Blue Alert. All rights reserved.</p>
-        </footer>
     </main>
-
-
+    @include('components.footer')
 </body>
 
 </html>

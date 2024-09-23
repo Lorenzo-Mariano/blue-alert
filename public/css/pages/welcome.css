@@ -22,3 +22,9 @@ main>* {
 main>header {
   padding: 5rem;
 }
+
+main h1,
+main h2 {
+  font-weight: bold;
+  color: #005f73;
+}

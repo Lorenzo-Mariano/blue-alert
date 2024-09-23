@@ -1,5 +1,7 @@
 @import url(https://fonts.bunny.net/css?family=figtree:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i);
 
+@import url(https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css);
+
 * {
   font-family: 'figtree', sans-serif;
   margin: 0;
@@ -26,10 +28,6 @@ button {
 
   border-radius: 0.25rem;
   padding: 0.25rem;
-}
-h1, h2 {
-  font-weight: bold;
-  color: #005f73; 
 }
 
 p {
@@ -84,7 +82,7 @@ header p {
   height: auto;
   margin: 1rem 0;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .cta {
@@ -116,23 +114,6 @@ header p {
 
 .cta a:hover {
   background-color: #94d2bd;
-}
-
-footer {
-  background-color: #0f457a;
-  color: white;
-  text-align: center;
-  padding: 1.5rem 0;
-  width: 98.8vw; 
-  position: relative;
-  left: 50%; 
-  transform: translateX(-50%); 
-  margin: 0 auto; 
-}
-
-footer p {
-  margin: 0;
-  font-size: 0.9rem;
 }
 
 .infographics img {

@@ -20,3 +20,14 @@ nav a {
 nav a:hover {
   color: #bbdefb;
 }
+
+nav a.active {
+  border-bottom: 2px solid #ffffff; 
+  padding-bottom: 5px; 
+  color: #bbdefb; 
+}
+
+nav a.active:hover {
+  color: #bbdefb; 
+  border-bottom: 2px solid #ffffff; 
+}

@@ -126,3 +126,176 @@ header p {
 .infographics img:hover {
   transform: scale(1.05);
 }
+.social-media{
+  margin-top: 15%;
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+.social-media a {
+  color: black;
+  margin-right: 15px;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.social-media a:hover {
+  color: #00aaff; 
+}
+
+.social-media h3{
+  color: #00aaff;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+
+.about-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+.about-header h1 {
+  color: #00aaff;
+  font-weight: bold;
+  font-size: 50px;
+  margin: 0; 
+  margin-left: 10px;
+}
+
+
+.Log-In {
+  margin-top: 5px;
+  display: flex;
+  gap: 10px; 
+  margin-right: 20px;
+}
+
+.Log-In a {
+  color: #ffffff;
+  background-color: #00aaff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.Log-In a:hover {
+  background-color: #005f80;
+  color: #fff;
+}
+
+.about-us h2 {
+  margin-top: 30px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.about-us p {
+  font-weight: bold;
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.signup {
+  margin-top: 20px;
+}
+
+.signup a {
+  color: #00aaff;
+  text-decoration: none;
+}
+
+
+.login-container {
+  background-color:#406882; 
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  color: white;
+  margin-top: 3%;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+.login-btn {
+  background-color: #00aaff; 
+  color: white;
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  cursor: pointer;
+}
+
+input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 7px;
+            border: 1px solid gray;
+            border-radius: 0.25rem;
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .forgot-password {
+            color: #00aaff;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        .signup-container {
+          background-color: #406882; 
+          padding: 20px;
+          border-radius: 8px;
+          width: 300px;
+          margin: 10% auto;
+          color: white;
+          text-align: center;
+            margin-top: 3%;
+      }
+      
+      .signup-container h2 {
+          margin-bottom: 20px;
+          font-size: 1.5rem;
+          
+      }
+      .signup-btn {
+        background-color: #00aaff; 
+        color: white;
+        padding: 5px;
+        border: none;
+        border-radius: 4px;
+        width: 100%;
+        cursor: pointer;
+    }
+    
+    .signup-btn:hover {
+        background-color: #005f80;
+    }
+    
+    .already-account {
+        margin-top: 15px;
+        font-size: 0.9rem;
+    }
+    
+    .already-account a {
+        color: #00aaff;
+        text-decoration: none;
+    }
+    
+    .already-account a:hover {
+        text-decoration: underline;
+    }
+    

@@ -10,12 +10,20 @@ Route::get('/articles', function () {
     return view('pages.articles');
 });
 
-Route::get('/infographics', function () {
-    return view('pages.infographics');
+Route::get('/about', function () {
+    return view('pages.about');
 });
 
 Route::get('/get-involved', function () {
     return view('pages.get-involved');
+});
+
+Route::get('/login', function () {
+    return view('pages.login');
+});
+
+Route::get('/signup', function () {
+    return view('pages.signup');
 });
 
 Route::get('/secret', function () {

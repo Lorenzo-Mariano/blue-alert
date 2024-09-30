@@ -29,7 +29,7 @@
                 <a href="/articles">Articles</a>
             </li>
             <li>
-                <a href="/infographics">Infographics</a>
+                <a href="/about">About</a>
             </li>
             <li>
                 <a href="/get-involved">Get Involved</a>

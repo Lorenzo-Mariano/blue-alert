@@ -26,7 +26,7 @@
             <h2>Our Vision</h2>
             <p>
                 To create a future where the oceans are free from plastic pollution, thriving with marine life,and
-                protected by a generation of environmentally-conscious Filipinos who actively safeguard our marine
+                protected by a generation of environmentally conscious Filipinos who actively safeguard our marine
                 ecosystems.
             </p>
         </section>
@@ -34,9 +34,15 @@
         <section class="social-media">
             {{-- basta links dito to social media, if you even like that --}}
             <h3>Follow Us On</h3>
-            <a href="https://facebook.com"> <i class="fa-brands fa-facebook"></i></a>
-            <a href="https://instagram.com"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://twitter.com"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://facebook.com">
+                <i class="iconoir-facebook"></i>
+            </a>
+            <a href="https://twitter.com">
+                <i class="iconoir-twitter"></i>
+            </a>
+            <a href="https://instagram.com">
+                <i class="iconoir-instagram"></i>
+            </a>
         </section>
     </main>
 

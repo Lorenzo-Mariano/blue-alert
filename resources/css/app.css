@@ -29,3 +29,7 @@ button {
   border-radius: 0.25rem;
   padding: 0.25rem;
 }
+
+dialog::backdrop {
+  background-color: #00000042;
+}

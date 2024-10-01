@@ -45,6 +45,11 @@ header {
   text-wrap: balance;
 }
 
+.invite>a,
+.invite>a:visited {
+  color: #0e4286;
+}
+
 .starter {
   display: flex;
   flex-wrap: wrap;

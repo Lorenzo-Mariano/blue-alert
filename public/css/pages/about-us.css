@@ -30,3 +30,8 @@ main>section {
 main>section>h2 {
   margin-bottom: 0.5rem;
 }
+
+main a,
+main a:visited {
+  color: #000;
+}

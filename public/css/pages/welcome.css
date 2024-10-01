@@ -2,29 +2,106 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
 }
 
 main {
+  flex: 1;
+  width: 100%;
+
+  font-size: 1.25rem;
+
   display: flex;
   flex-direction: column;
-
-  /* gap: 4rem; */
-  text-align: center;
-
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-main>* {
-  padding: 2rem;
-}
-
-main>header {
-  padding: 5rem;
 }
 
 main h1,
-main h2 {
-  font-weight: bold;
-  color: #005f73;
+main h2,
+main h3 {
+  color: #0e4286;
+}
+
+
+header {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 2rem;
+  border-radius: 1rem;
+
+  text-align: center;
+  background-color: #fff;
+}
+
+.motto {
+  margin-top: 100px;
+  margin-bottom: 32px;
+}
+
+.invite {
+  text-wrap: balance;
+}
+
+.starter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  background-color: #fff;
+  padding: 64px 0 64px 0;
+}
+
+.starter div {
+  width: 500px;
+}
+
+.services-label {
+  width: max-content;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #fff;
+  padding: 1rem;
+}
+
+.services {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: 2px solid #0e4286;
+}
+
+.service-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+}
+
+.service-list>div {
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+}
+
+.starter h3,
+.service-list h3 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.starter div,
+.service-list div {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: #fff;
+}
+
+.starter p,
+.service-list p {
+  flex: 1;
+  padding: 1rem;
+  border: 2px solid #0e4286;
 }

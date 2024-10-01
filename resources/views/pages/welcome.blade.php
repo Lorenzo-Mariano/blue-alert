@@ -13,58 +13,70 @@
     @include('components.navbar')
 
     <main>
-
-        <header>
-            <div>
-                <h1>Blue Alert</h1>
-                <p>Together, we can prevent ocean waste in the Philippines.</p>
+        <header class="shadow-1">
+            <h1 class="motto">
+                Protecting our rivers, protecting our future.
+            </h1>
+            <div class="invite">
+                <h4>Join the movement</h4>
+                <span>Join us in preserving the lifeblood of our ecosystems and communities</span><br>
+                <a href="/get-involved">Join Now</a>
             </div>
         </header>
-
-        <section class="mission-statement">
-            <h2>Our Mission</h2>
-            <p>Blue Alert is dedicated to educating and empowering Filipinos to take action against ocean pollution. The
-                ocean is a vital resource, providing food, livelihoods, and a home for countless species. However, it is
-                under threat from the massive influx of plastic waste that contaminates its waters. By raising awareness
-                and
-                advocating for better practices, we aim to protect our oceans for future generations.</p>
+        <section class="starter shadow-bottom">
+            <div class="welcome">
+                <h3>Welcome to Blue Alert</h3>
+                <p class="shadow-1">
+                    We are dedicated to protecting and restoring rivers through waste pollution monitoring, community
+                    clean-up efforts, and promoting sustainable practices. Our waste monitoring program empowers
+                    everyone to fight water pollution.
+                </p>
+            </div>
+            <div class="mission">
+                <h3>Mission</h3>
+                <p class="shadow-1">
+                    Our mission is to advocate for the protection and restoration of rivers through
+                    grassroots action, policy change and education. We work to ensure that rivers thrive for the people,
+                    wildlife and ecosystems that depend on them.
+                </p>
+            </div>
         </section>
+        <section class="services">
+            <h2 class="services-label">Services</h2>
+            <div class="service-list">
+                <div class="river-health-monitoring">
+                    <h3>River Health Monitoring</h3>
+                    <p>
+                        Provides real-time data and reports on the quality of river water,
+                        including metrics like pH, turbidity, and pollutant levels.
+                    </p>
+                </div>
+                <div class="community-engagement">
+                    <h3>Community Engagement</h3>
+                    <p>
+                        Provides platforms for community discussions, forums, and events focused
+                        on river conservation and waste management.
+                    </p>
+                </div>
+                <div class="advocacy-and-campaigns">
+                    <h3>Advocacy and Campaigns</h3>
+                    <p>
+                        Promotes initiatives and campaigns aimed at protecting rivers and
+                        reducing pollution. This might include petitions, awareness programs, and collaboration with
+                        local
+                        communities.
+                    </p>
+                </div>
+                <div class="educational-resources">
+                    <h3>Educational Resources</h3>
+                    <p>
+                        Offers information on river ecosystems, pollution impacts, and ways
+                        individuals can contribute to river conservation.
+                    </p>
+                </div>
+            </div>
 
-        <section class="ocean-awareness">
-            <h2>The State of Our Oceans</h2>
-            <p>The world's oceans are facing an unprecedented crisis. Each year, millions of tons of plastic enter the
-                oceans, disrupting marine ecosystems and endangering wildlife. In the Philippines, this problem is
-                especially severe, as the country ranks among the top contributors to ocean plastic waste. From remote
-                coastal communities to bustling urban centers, plastic pollution is a pervasive issue that affects
-                everyone.
-            </p>
-            <p>But it’s not just the environment that suffers—our health and livelihoods are also at risk. Contaminated
-                water, poisoned fish, and damaged ecosystems all have far-reaching consequences. The fight against ocean
-                plastic waste is not just an environmental issue; it’s a battle for the well-being of all Filipinos.</p>
         </section>
-
-        <section class="infographics">
-            <h2>Infographics</h2>
-            <p>Visualize the impact of ocean waste and understand the scale of the problem through our infographics.
-                These
-                resources highlight key data, showcase the effects of plastic pollution, and offer actionable steps we
-                can
-                all take to mitigate this crisis.</p>
-            <img src="{{ asset('images/blue.jpg') }}" alt="Infographic 1">
-            <img src="{{ asset('images/blue2.jpg') }}" alt="Infographic 2">
-        </section>
-
-        <section class="cta">
-            <h2>Join the Movement</h2>
-            <p>The time to act is now. Ocean conservation requires collective effort, and every individual’s
-                contribution
-                counts. Whether it’s by reducing plastic usage, supporting policies that protect marine environments, or
-                spreading the message to others—everyone has a role to play. Join us in our mission to protect the
-                oceans
-                and secure a sustainable future for the Philippines.</p>
-            <a href="get-involved">Sign Up</a>
-        </section>
-
     </main>
     @include('components.footer')
 </body>

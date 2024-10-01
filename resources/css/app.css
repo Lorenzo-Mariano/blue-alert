@@ -34,6 +34,6 @@ button:focus {
   font-weight: 800;
 }
 
-button:focus dialog::backdrop {
+dialog::backdrop {
   background-color: #00000042;
 }

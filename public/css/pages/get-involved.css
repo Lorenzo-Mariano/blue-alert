@@ -84,3 +84,11 @@ button.login {
   color: white;
   background-color: rgb(83, 143, 255);
 }
+
+.success {
+  color: #1a7c1a;
+}
+
+.error {
+  color: #ff6347;
+}

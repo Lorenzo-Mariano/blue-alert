@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -29,3 +30,5 @@ Route::get('/signup', function () {
 Route::get('/secret', function () {
     return "You aren't supposed to be here.";
 });
+
+Route::post('/register', [UserController::class, 'register']);

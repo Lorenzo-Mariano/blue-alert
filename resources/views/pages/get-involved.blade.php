@@ -12,8 +12,10 @@
 <body>
     @include('components.navbar')
     <dialog class="sign-up-modal">
-        <form class="sign-up-form" action="">
+        <form class="sign-up-form" onsubmit="register(event)">
+            @csrf
             <h1>Sign Up</h1>
+            <span class="status"></span>
             <label for="first-name">First Name</label>
             <input name="first_name" type="text" maxlength="50" required>
             <label for="first-name">Last Name</label>
@@ -21,9 +23,9 @@
             <label for="email">Email</label>
             <input name="email" type="email" required>
             <label for="password">Password</label>
-            <input name="password" type="password" required>
+            <input name="password" type="password" minlength="8" required>
             <label for="confirm-password">Confirm Password</label>
-            <input name="confirm-password" type="password" required>
+            <input name="password_confirmation" type="password" minlength="8" required>
             <section>
                 <button type="reset">Clear</button>
                 <button class="sign-up" type="submit">Sign Up</button>
@@ -31,7 +33,7 @@
         </form>
     </dialog>
     <dialog class="login-modal">
-        <form class="login-form" action="">
+        <form class="login-form">
             <h1>Login</h1>
             <label for="email">Email</label>
             <input name="email" type="email" required>

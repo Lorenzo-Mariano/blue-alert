@@ -15,15 +15,15 @@
         <form class="sign-up-form" action="">
             <h1>Sign Up</h1>
             <label for="first-name">First Name</label>
-            <input type="text" maxlength="50" required>
+            <input name="first_name" type="text" maxlength="50" required>
             <label for="first-name">Last Name</label>
-            <input type="text" maxlength="50" required>
+            <input name="last_name" type="text" maxlength="50" required>
             <label for="email">Email</label>
-            <input type="email" required>
+            <input name="email" type="email" required>
             <label for="password">Password</label>
-            <input type="password" required>
+            <input name="password" type="password" required>
             <label for="confirm-password">Confirm Password</label>
-            <input type="password" required>
+            <input name="confirm-password" type="password" required>
             <section>
                 <button type="reset">Clear</button>
                 <button class="sign-up" type="submit">Sign Up</button>
@@ -34,9 +34,9 @@
         <form class="login-form" action="">
             <h1>Login</h1>
             <label for="email">Email</label>
-            <input type="email" required>
+            <input name="email" type="email" required>
             <label for="password">Password</label>
-            <input type="password" required>
+            <input name="password" type="password" required>
             <section>
                 <button type="reset">Clear</button>
                 <button class="login" type="submit">Login</button>

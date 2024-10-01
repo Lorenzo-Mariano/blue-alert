@@ -30,6 +30,10 @@ button {
   padding: 0.25rem;
 }
 
-dialog::backdrop {
+button:focus {
+  font-weight: 800;
+}
+
+button:focus dialog::backdrop {
   background-color: #00000042;
 }

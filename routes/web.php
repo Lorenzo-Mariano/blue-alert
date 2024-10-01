@@ -10,8 +10,8 @@ Route::get('/articles', function () {
     return view('pages.articles');
 });
 
-Route::get('/about', function () {
-    return view('pages.about');
+Route::get('/about-us', function () {
+    return view('pages.about-us');
 });
 
 Route::get('/get-involved', function () {

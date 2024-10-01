@@ -14,9 +14,15 @@
     <dialog class="sign-up-modal">
         <form class="sign-up-form" action="">
             <h1>Sign Up</h1>
+            <label for="first-name">First Name</label>
+            <input type="text" maxlength="50" required>
+            <label for="first-name">Last Name</label>
+            <input type="text" maxlength="50" required>
             <label for="email">Email</label>
             <input type="email" required>
             <label for="password">Password</label>
+            <input type="password" required>
+            <label for="confirm-password">Confirm Password</label>
             <input type="password" required>
             <section>
                 <button type="reset">Clear</button>

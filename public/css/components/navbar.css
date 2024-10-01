@@ -17,17 +17,13 @@ nav a {
   transition: color 0.3s ease;
 }
 
-nav a:hover {
-  color: #bbdefb;
-}
 
 nav a.active {
-  border-bottom: 2px solid #ffffff; 
-  padding-bottom: 5px; 
-  color: #bbdefb; 
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 5px;
+
 }
 
 nav a.active:hover {
-  color: #bbdefb; 
-  border-bottom: 2px solid #ffffff; 
+  border-bottom: 2px solid #ffffff;
 }

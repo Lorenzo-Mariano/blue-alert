@@ -33,8 +33,10 @@
         </form>
     </dialog>
     <dialog class="login-modal">
-        <form class="login-form">
+        <form class="login-form" onsubmit="login(event)">
+            @csrf
             <h1>Login</h1>
+            <span class="status"></span>
             <label for="email">Email</label>
             <input name="email" type="email" required>
             <label for="password">Password</label>
@@ -46,7 +48,7 @@
         </form>
     </dialog>
     <main>
-        <div class="hero" action="">
+        <div class="hero">
             <header>
                 <h1>Blue Alert</h1>
                 <span>Want to join us? Sign up to interact with blogs and more!</span>

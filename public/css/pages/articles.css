@@ -9,6 +9,29 @@ main {
   flex: 1;
 }
 
+.left-panel {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1rem;
+  flex: 1;
+  gap: 1rem;
+
+  border-right: 1px solid #aaaaaa81;
+  background-color: #fff;
+}
+
+.left-panel>section>a {
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0f457a;
+}
+
+hr {
+  border-style: solid;
+  border-color: #292929;
+}
+
 .content {
   display: flex;
   flex-direction: column

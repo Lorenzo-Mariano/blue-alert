@@ -5,7 +5,7 @@
     @vite(['resources/css/app.css', 'public/css/pages/welcome.css'])
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Blue Alert - Prevent Ocean Waste</title>
+    <title>Blue Alert - Fight Water Pollution</title>
 
 </head>
 

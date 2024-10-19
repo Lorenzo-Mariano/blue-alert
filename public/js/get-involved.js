@@ -41,13 +41,19 @@ async function register(event) {
         });
 
         const result = await response.json();
-        signUpStatus.textContent = result.message;
-        if (response.ok) {
-            signUpForm.reset();
-            return (signUpStatus.className = "success");
-        }
+        signUpStatus.textContent = result.message + ". Opening login form...";
 
-        signUpStatus.className = "error";
+        if (response.ok) {
+            signUpStatus.className = "success";
+            signUpForm.reset();
+
+            setTimeout(() => {
+                signUpModal.close();
+                openLogin();
+            }, 2000);
+        } else {
+            signUpStatus.className = "error";
+        }
     } catch (error) {
         console.error("Error:", error);
         signUpStatus.textContent = "An error occurred. Please try again.";
@@ -72,10 +78,18 @@ async function login(event) {
         });
 
         const result = await response.json();
+        loginStatus.textContent =
+            result.message + ". Redirecting to articles page...";
+
         if (response.ok) {
-            loginStatus.textContent = result.message;
-            loginStatus.className = response.ok ? "success" : "error";
+            loginStatus.className = "success";
             loginForm.reset();
+
+            setTimeout(() => {
+                window.location.href = "/articles";
+            }, 500);
+        } else {
+            loginStatus.className = "error";
         }
     } catch (error) {
         console.error("Error:", error);

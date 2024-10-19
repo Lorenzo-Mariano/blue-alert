@@ -3,6 +3,9 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+
+// Just pages
+
 Route::get('/', function () {
     return view('pages.welcome');
 });
@@ -17,18 +20,18 @@ Route::get('/about-us', function () {
 
 Route::get('/get-involved', function () {
     return view('pages.get-involved');
-});
+})->name('login');
 
-Route::get('/login', function () {
-    return view('pages.login');
-});
+// Functional stuff
 
-Route::get('/signup', function () {
-    return view('pages.signup');
-});
+Route::middleware(['auth'])->group(function () {
+    Route::get('/create-article', function () {
+        return view('pages.create-article');
+    });
 
-Route::get('/secret', function () {
-    return "You aren't supposed to be here.";
+    Route::get('/secret', function () {
+        return "You aren't supposed to be here.";
+    });
 });
 
 Route::post('/register', [UserController::class, 'register']);

@@ -46,14 +46,6 @@ dialog::backdrop {
   background-color: #00000042;
 }
 
-a {
-  color: #fff;
-}
-
-a:visited {
-  color: #fff;
-}
-
 a:-webkit-any-link {
   text-decoration: none;
 }

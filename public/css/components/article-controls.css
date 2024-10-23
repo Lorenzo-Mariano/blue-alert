@@ -1,7 +1,5 @@
-.filters {
-  flex: 1;
+.article-controls {
   display: flex;
   flex-direction: column;
-
-  gap: 0.5rem;
+  align-items: center;
 }

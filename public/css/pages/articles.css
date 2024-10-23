@@ -1,7 +1,7 @@
 body {
   display: flex;
   flex-direction: column;
-  max-height: 100vh;
+  min-height: 100vh;
 }
 
 main {
@@ -9,9 +9,32 @@ main {
   flex: 1;
 }
 
+.left-panel {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1rem;
+  gap: 1rem;
+
+  border-right: 1px solid #aaaaaa81;
+  background-color: #fff;
+}
+
+.left-panel>section>a {
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0f457a;
+}
+
+hr {
+  border-style: solid;
+  border-color: #292929;
+}
+
 .content {
   display: flex;
-  flex-direction: column
+  flex-direction: column;
+  flex: 1;
 }
 
 .blogs {
@@ -21,6 +44,20 @@ main {
   grid-template-rows: 1fr 1fr;
   gap: 1rem;
   padding: 1rem;
+}
+
+.msg-wrapper {
+  display: flex;
+  flex: 1;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.no-articles {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 1rem;
 }
 
 @media (max-width: 1024px) {

@@ -1,0 +1,81 @@
+form {
+  display: flex;
+  background-color: #fff;
+  flex: 0 1 450px;
+
+  width: 100%;
+  max-width: 600px;
+}
+
+.parts {
+  display: flex;
+  flex-direction: column;
+
+  background-color: #0f447a;
+  color: #fff;
+}
+
+.parts .toggle-section {
+  border-radius: 0;
+  padding: 1rem;
+}
+
+.toggle-section:hover {
+  background-color: #d1d1d131;
+}
+
+form button:focus {
+  font-weight: normal;
+}
+
+.editor {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  gap: 4rem;
+  padding: 1rem;
+
+  line-height: 1.35;
+}
+
+.editor .title-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.editor button {
+  padding: 0.25rem;
+  background-color: #0f447a;
+  color: #fff;
+}
+
+.editor .to-content,
+.editor .to-references {
+  justify-content: flex-end;
+  align-self: flex-end;
+}
+
+.editor textarea {
+  border: unset;
+  outline: none;
+  overflow: hidden;
+  resize: vertical;
+  border-bottom: 1px solid #000;
+}
+
+#title {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+
+  height: 38px;
+  min-height: 38px;
+  max-height: 90px;
+
+  font-size: 24px;
+}
+
+#title:focus-visible {
+  border-color: #398fff;
+}

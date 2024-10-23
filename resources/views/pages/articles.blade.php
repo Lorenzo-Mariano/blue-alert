@@ -32,7 +32,10 @@
                 </div>
             @endif
 
-            <div class="page-select">1 2 3</div>
+            <div class="pagination">
+                {{ $articles->links() }}
+            </div>
+
         </div>
     </main>
     @include('components.footer')

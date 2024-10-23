@@ -14,12 +14,9 @@
     <main>
 
         <article>
-
             <section class="article-header">
-                {{-- Background Image --}}
                 <div class="header-overlay">
-                    <img src="https://static.animecorner.me/2024/06/1717764399-1b00ff8d04de8fa8256cf86a5f37b986-768x432.jpg"
-                        alt="Article Background" class="background-image">
+                    <img src="{{ Storage::url($article->image) }}" alt="Article Background" class="background-image">
                     <div class="header-content">
                         <h1>{{ $article->title }}</h1>
                         <p class="article-author">Written by {{ $article->author->first_name }}
@@ -31,6 +28,7 @@
             </section>
 
             <section class="article-content">
+                <a href="/articles" class="back-button">← Back to Articles</a>
                 <div class="article-body">
                     {!! nl2br(e($article->content)) !!}
                 </div>

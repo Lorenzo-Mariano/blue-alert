@@ -10,19 +10,24 @@ class ArticleController extends Controller
 {
     public function create(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'title' => 'required|max:100',
             'content' => 'required',
-            'reference' => 'nullable|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $article = Article::create([
-            'title' => $validated['title'],
-            'content' => $validated['content'],
-            'author_id' => Auth::id(),
-            'reads' => 0,
-        ]);
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('articles', 'public');
+        }
 
-        return redirect('/articles')->with('success', 'Article created successfully!');
+        $article = new Article();
+        $article->title = $request->input('title');
+        $article->content = $request->input('content');
+        $article->author_id = Auth::id();
+        $article->image = $imagePath;
+        $article->save();
+
+        return redirect('/articles/' . $article->id)
+            ->with('success', 'Article created successfully!');
     }
 }

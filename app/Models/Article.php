@@ -19,5 +19,6 @@ class Article extends Model
         'content',
         'author_id',
         'reads',
+        'image'
     ];
 }

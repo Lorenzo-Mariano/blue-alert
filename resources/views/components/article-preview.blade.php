@@ -1,8 +1,10 @@
 @vite(['public/css/components/article-preview.css'])
 
 <div class="blog-preview">
-    <a href="/">
-        <img src="https://m.media-amazon.com/images/I/81XP3iQ9vML._AC_SL1500_.jpg" alt="blog-image">
-        <h3 class="title">Lorem ipsum dolor sit amet consectetur</h3>
+    <a href="{{ url('/articles/' . $article->id) }}">
+        {{-- <img src="{{ $article->image_url }}" alt="blog-image"> --}}
+        <img src="https://static.animecorner.me/2024/06/1717764399-1b00ff8d04de8fa8256cf86a5f37b986-768x432.jpg"
+            alt="blog-image">
+        <h3 class="title">{{ $article->title }}</h3>
     </a>
 </div>

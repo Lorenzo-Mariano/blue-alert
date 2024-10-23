@@ -46,6 +46,20 @@ hr {
   padding: 1rem;
 }
 
+.msg-wrapper {
+  display: flex;
+  flex: 1;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.no-articles {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
 @media (max-width: 1024px) {
   .blogs {
     grid-template-columns: 1fr 1fr 1fr;

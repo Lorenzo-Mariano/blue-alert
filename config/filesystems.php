@@ -56,6 +56,13 @@ return [
             'throw' => false,
         ],
 
+        'backblaze' => [
+            'driver' => 's3',
+            'applicationKey' => env('B2_APP_KEY'),
+            'bucketName' => env('B2_BUCKET'),
+            'bucketId' => env('B2_BUCKET_ID'),
+        ],
+
     ],
 
     /*

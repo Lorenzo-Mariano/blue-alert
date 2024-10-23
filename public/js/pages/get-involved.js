@@ -41,9 +41,10 @@ async function register(event) {
         });
 
         const result = await response.json();
-        signUpStatus.textContent = result.message + ". Opening login form...";
+        signUpStatus.textContent = result.message;
 
         if (response.ok) {
+            signUpStatus.textContent += ". Redirecting to articles page...";
             signUpStatus.className = "success";
             signUpForm.reset();
 
@@ -78,10 +79,10 @@ async function login(event) {
         });
 
         const result = await response.json();
-        loginStatus.textContent =
-            result.message + ". Redirecting to articles page...";
+        loginStatus.textContent = result.message;
 
         if (response.ok) {
+            loginStatus.textContent += ". Redirecting to articles page...";
             loginStatus.className = "success";
             loginForm.reset();
 

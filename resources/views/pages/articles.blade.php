@@ -20,7 +20,7 @@
         </div>
 
         <div class="content">
-            @if (!$hasArticles)
+            @if ($hasArticles)
                 <div class="blogs">
                     @foreach ($articles as $article)
                         @include('components.article-preview', ['article' => $article])

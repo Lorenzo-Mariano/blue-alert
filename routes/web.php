@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\UserController;
+use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
-use App\Models\Article;
 
 // Just pages
 
@@ -12,10 +12,9 @@ Route::get('/', function () {
     return view('pages.welcome');
 });
 
-
 Route::get('/articles', function () {
-    $articles = Article::with('author')->get(); // Fetch all articles with author data
-    $hasArticles = $articles->isNotEmpty(); // Check if there are any articles
+    $articles = Article::with('author')->get();
+    $hasArticles = $articles->isNotEmpty();
 
     return view('pages.articles', [
         'articles' => $articles,
@@ -23,6 +22,12 @@ Route::get('/articles', function () {
     ]);
 });
 
+Route::get('/articles/{id}', function (string $id) {
+    $article = Article::with(['author'])->findOrFail($id);
+    $article->increment('reads');
+
+    return view('pages.article', compact('article'));
+});
 
 Route::get('/about-us', function () {
     return view('pages.about-us');
@@ -35,7 +40,6 @@ Route::get('/get-involved', function () {
 Route::get('/hail-Mary', function () {
     $files = Storage::disk('backblaze')->allFiles();
 
-    // Return a view or JSON response with the list of files
     return response()->json($files);
 });
 

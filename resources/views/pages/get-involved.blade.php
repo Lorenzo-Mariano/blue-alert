@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blue Alert - Fight Water Pollution</title>
     @vite(['resources/css/app.css', 'public/css/pages/get-involved.css'])
-    <script src="{{ asset('js/get-involved.js') }}" defer></script>
+    <script src="{{ asset('js/pages/get-involved.js') }}" defer></script>
 </head>
 
 <body>

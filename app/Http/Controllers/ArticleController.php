@@ -27,7 +27,7 @@ class ArticleController extends Controller
         $article->image = $imagePath;
         $article->save();
 
-        return redirect('/articles/' . $article->id)
+        return redirect('/article/' . $article->id)
             ->with('success', 'Article created successfully!');
     }
 }

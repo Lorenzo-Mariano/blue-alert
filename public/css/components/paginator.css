@@ -3,9 +3,12 @@ nav.paginator {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
   gap: 0.5rem;
+  padding: 0.5rem;
 
   font-size: 2rem;
+  border-top: 1px solid #aaaaaa81;
   background-color: #fff;
 }
 

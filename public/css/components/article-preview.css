@@ -49,3 +49,11 @@
 .blog-preview>a:visited>h2 {
   color: #001130;
 }
+
+.author a {
+  color: #000;
+}
+
+.author a:hover {
+  color: #3498db;
+}

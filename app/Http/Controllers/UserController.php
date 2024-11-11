@@ -13,7 +13,8 @@ class UserController extends Controller
     public function findOne()
     {
         $user = Auth::user();
-        return view('pages.profile', compact('user'));
+        $articles = $user->articles()->get();
+        return view('pages.profile', compact('user', 'articles'));
     }
 
     public function register(Request $request)

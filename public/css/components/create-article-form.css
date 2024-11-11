@@ -58,7 +58,7 @@ form button:focus {
 
   border: unset;
   outline: none;
-  overflow: hidden;
+  overflow: scroll;
   resize: vertical;
 
   padding: 0.5rem;

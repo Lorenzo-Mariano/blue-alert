@@ -19,13 +19,15 @@
                     <img src="<?php echo e(Storage::url($article->image)); ?>" alt="Article Background" class="background-image">
                     <div class="header-content">
                         <h1><?php echo e($article->title); ?></h1>
-                        <p class="article-author">Written by <?php echo e($article->author->first_name); ?>
+                        <p class="article-author">
+                            Written by
+                            <a href="<?php echo e(route('user', ['id' => $article->author->id])); ?>">
+                                <?php echo e($article->author->first_name); ?> <?php echo e($article->author->last_name); ?>
 
-                            <?php echo e($article->author->last_name); ?> on
-                            <?php echo e($article->created_at->format('M d, Y')); ?>
+                            </a>
+                            on <?php echo e($article->created_at->format('M d, Y')); ?>
 
                         </p>
-
                         <?php if($article->is_restricted): ?>
                             <div class="restriction-message">
                                 <p>This article is restricted. It is not accessible to users other than the author and
@@ -40,7 +42,7 @@
                 <div class="links">
                     <a href="/articles" class="back-button">← Back to Articles</a>
 
-                    <?php if(Auth::check() && Auth::user()->is_admin): ?>
+                    <?php if(Auth::check() && Auth::user()->is_admin && Auth::user()->id != $article->author->id): ?>
                         <div class="admin-option">
                             <i class="iconoir-minus-hexagon"></i>
                             <a href="<?php echo e(route('admin.reasonForm', ['action' => 'banUser', 'id' => $article->author_id])); ?>"

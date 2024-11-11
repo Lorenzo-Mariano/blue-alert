@@ -5,6 +5,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\IsAdmin;
 use App\Models\Article;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
@@ -62,6 +63,15 @@ Route::get('/article/{id}', function (string $id) {
     $article->increment('reads');
     return view('pages.article', compact('article'));
 });
+
+Route::get('/user/{id}', function (int $id) {
+    $user = User::with('articles')->findOrFail($id); // Load user along with their articles
+    return view('pages.user-page', [
+        'user' => $user,
+        'articles' => $user->articles, // Pass articles to the view
+    ]);
+})->name('user');
+
 
 Route::get('/about-us', function () {
     return view('pages.about-us');

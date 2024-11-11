@@ -8,9 +8,12 @@
         <section class="text">
             <h3 class="title">{{ $article->title }}</h3>
 
-            <!-- New Information to Display -->
             <p class="author">
-                By {{ $article->author->first_name }} {{ $article->author->last_name }} on
+                By
+                <a href="/user/{{ $article->author->id }}">
+                    {{ $article->author->first_name }} {{ $article->author->last_name }}
+                </a>
+                on
                 {{ $article->created_at->format('M d, Y') }}
             </p>
             <p class="read-count">

@@ -19,11 +19,13 @@
                     <img src="{{ Storage::url($article->image) }}" alt="Article Background" class="background-image">
                     <div class="header-content">
                         <h1>{{ $article->title }}</h1>
-                        <p class="article-author">Written by {{ $article->author->first_name }}
-                            {{ $article->author->last_name }} on
-                            {{ $article->created_at->format('M d, Y') }}
+                        <p class="article-author">
+                            Written by
+                            <a href="{{ route('user', ['id' => $article->author->id]) }}">
+                                {{ $article->author->first_name }} {{ $article->author->last_name }}
+                            </a>
+                            on {{ $article->created_at->format('M d, Y') }}
                         </p>
-
                         @if ($article->is_restricted)
                             <div class="restriction-message">
                                 <p>This article is restricted. It is not accessible to users other than the author and
@@ -38,7 +40,7 @@
                 <div class="links">
                     <a href="/articles" class="back-button">← Back to Articles</a>
 
-                    @if (Auth::check() && Auth::user()->is_admin)
+                    @if (Auth::check() && Auth::user()->is_admin && Auth::user()->id != $article->author->id)
                         <div class="admin-option">
                             <i class="iconoir-minus-hexagon"></i>
                             <a href="{{ route('admin.reasonForm', ['action' => 'banUser', 'id' => $article->author_id]) }}"

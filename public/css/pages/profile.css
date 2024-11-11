@@ -10,14 +10,15 @@ main {
 
 	justify-content: center;
 	align-items: center;
+	padding: 2rem;
 }
 
 div.profile-card {
 	display: flex;
 	flex-direction: column;
 
-	width: 450px;
-	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+	width: 768px;
+	box-shadow: #32325d40 0px 50px 100px -20px, #0000004d 0px 30px 60px -30px, #0a254059 0px -2px 6px 0px inset;
 }
 
 div.profile-card>h1 {
@@ -26,7 +27,13 @@ div.profile-card>h1 {
 	background-color: #0f457a;
 }
 
-div.profile-card>section {
+div.profile-card>h2 {
+	padding: 1rem;
+	background-color: #fff;
+	border-top: 2px dashed #0f457a;
+}
+
+section.profile-details {
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
@@ -38,5 +45,15 @@ div.profile-card>section {
 	padding: 0.4rem;
 	background-color: #0f457a;
 	color: #fff;
+}
 
+section.user-articles {
+	display: flex;
+	flex-wrap: wrap;
+
+	gap: 1rem;
+	padding: 1rem;
+
+	background-color: #fff;
+	box-shadow: #32325d40 0px 50px 100px -20px, #0000004d 0px 30px 60px -30px, #0a254059 0px -2px 6px 0px inset;
 }

@@ -11,6 +11,10 @@ class AdminController extends Controller
 {
     public function dashboard()
     {
+        if (Auth::user()->is_banned) {
+            return view('pages.admin.you-are-banned');
+        }
+
         $bannedUsers = User::where('is_banned', true)->get();
         $restrictedPosts = Article::where('is_restricted', true)->get();
         $users = User::all();
@@ -40,15 +44,11 @@ class AdminController extends Controller
     public function banUser(Request $request, User $user)
     {
         if (Auth::user()->is_admin) {
-            $request->validate([
-                'reason' => 'required|string|max:255',
-            ]);
-
             $user->is_banned = true;
             $user->ban_reason = $request->input('reason', 'No reason provided');
             $user->save();
 
-            return redirect('/articles')->with('user_status', 'User has been banned successfully.');
+            return redirect()->route('admin.dashboard')->with('user_status', 'User has been banned successfully.');
         }
 
         return redirect()->back()->with('error', 'Unauthorized action.');

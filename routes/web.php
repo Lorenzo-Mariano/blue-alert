@@ -5,16 +5,14 @@ use App\Http\Controllers\UserController;
 use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+
 
 // Just pages
 
 Route::get('/', function () {
     return view('pages.welcome');
 });
-
-// Route::get('/articles', function () {
-//     return redirect('/articles/1');
-// });
 
 Route::get('/articles/{page?}', function (int $page = 1) {
     $articles = Article::latest()->paginate(6, ['*'], 'page', $page);
@@ -56,6 +54,8 @@ Route::get('/privacy', function () {
 
 Route::middleware(['auth'])->group(function () {
     // views
+    Route::get('/profile', [UserController::class, 'findOne']);
+
     Route::get('/create-article', function () {
         return view('pages.create-article');
     });
@@ -76,3 +76,8 @@ Route::middleware(['auth'])->group(function () {
 Route::post('/register', [UserController::class, 'register']);
 
 Route::post('/login', [UserController::class, 'login']);
+
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/');
+})->name('logout');

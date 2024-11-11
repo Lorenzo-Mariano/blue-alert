@@ -1,0 +1,39 @@
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+main {
+	flex: 1;
+	display: flex;
+
+	justify-content: center;
+	align-items: center;
+}
+
+div.profile-card {
+	display: flex;
+	flex-direction: column;
+}
+
+div.profile-card>h1 {
+	padding: 1rem;
+	color: #fff;
+	background-color: #0f457a;
+}
+
+div.profile-card>section {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding: 1rem;
+	background-color: #fff;
+}
+
+.btn-logout {
+	padding: 0.4rem;
+	background-color: #0f457a;
+	color: #fff;
+
+}

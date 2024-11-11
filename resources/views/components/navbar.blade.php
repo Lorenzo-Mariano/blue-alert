@@ -1,8 +1,16 @@
 @vite(['resources/css/app.css', 'public/css/components/navbar.css'])
 
+
+{{-- on the right end of the bar, add the user's firstname. --}}
 <nav class="navbar">
-    <a href="/" class="{{ Request::is('/') ? 'active' : '' }}">Home</a>
-    <a href="/about-us" class="{{ Request::is('about-us') ? 'active' : '' }}">About Us</a>
-    <a href="/articles/1" class="{{ Request::is('articles') ? 'active' : '' }}">Articles</a>
-    <a href="/get-involved" class="{{ Request::is('get-involved') ? 'active' : '' }}">Get Involved</a>
+    <section class="main-links">
+        <a href="/" class="{{ Request::is('/') ? 'active' : '' }}">Home</a>
+        <a href="/about-us" class="{{ Request::is('about-us') ? 'active' : '' }}">About Us</a>
+        <a href="/articles/1" class="{{ Request::is('articles') ? 'active' : '' }}">Articles</a>
+        <a href="/get-involved" class="{{ Request::is('get-involved') ? 'active' : '' }}">Get Involved</a>
+    </section>
+
+    <a class="profile-link" href="{{ Auth::check() ? '/profile' : '#' }}">
+        {{ Auth::check() ? Auth::user()->first_name . ' ' . Auth::user()->last_name : 'Not logged in.' }}
+    </a>
 </nav>

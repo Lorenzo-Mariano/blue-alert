@@ -12,6 +12,10 @@ Route::get('/', function () {
     return view('pages.welcome');
 });
 
+// Route::get('/articles', function () {
+//     return redirect('/articles/1');
+// });
+
 Route::get('/articles/{page?}', function (int $page = 1) {
     $articles = Article::latest()->paginate(6, ['*'], 'page', $page);
     $hasArticles = $articles->isNotEmpty();
@@ -21,6 +25,7 @@ Route::get('/articles/{page?}', function (int $page = 1) {
         'hasArticles' => $hasArticles,
     ]);
 });
+
 
 Route::get('/article/{id}', function (string $id) {
     $article = Article::with(['author'])->findOrFail($id);

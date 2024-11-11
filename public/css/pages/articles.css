@@ -6,7 +6,7 @@ body {
 
 main {
   flex: 1;
-  flex-direction: column;
+  display: flex;
 }
 
 .left-panel {
@@ -40,27 +40,24 @@ hr {
 .blogs {
   flex: 5;
   display: grid;
-<<<<<<< HEAD
-  grid-template-columns: 1fr 1fr 1fr; /* 3 columns */
-  gap: 1.5rem; /* Space between articles */
-=======
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 1rem;
->>>>>>> b707c652419470b666c6083dbc0b02b8bd89feb1
   padding: 1rem;
   margin: 0 auto;
-  max-width: 1200px; /* Add some margin for content width control */
+  max-width: 1200px;
+  /* Add some margin for content width control */
 }
 
 .article-preview {
-  background-color: rgba(255, 255, 255, 0.8); 
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   text-align: center;
   padding: 0.5rem;
-  max-width: 250px; /* Adjust size */
+  max-width: 250px;
+  /* Adjust size */
   margin: 0 auto;
 }
 
@@ -113,7 +110,8 @@ hr {
 
 @media (max-width: 1024px) {
   .blogs {
-    grid-template-columns: 1fr 1fr; /* 2 columns for smaller screens */
+    grid-template-columns: 1fr 1fr;
+    /* 2 columns for smaller screens */
   }
 }
 

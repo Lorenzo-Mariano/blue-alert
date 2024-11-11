@@ -4,9 +4,11 @@ nav.navbar {
   padding: 1rem 0;
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+section.main-links {
+  flex: 1 0;
 }
 
 nav.navbar a {
@@ -26,4 +28,8 @@ nav.navbar a.active {
 
 nav.navbar a.active:hover {
   border-bottom: 2px solid #ffffff;
+}
+
+a.profile-link {
+  justify-self: flex-end;
 }

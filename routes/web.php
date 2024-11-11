@@ -46,15 +46,20 @@ Route::get('/hail-Mary', function () {
 // Functional stuff
 
 Route::middleware(['auth'])->group(function () {
+    // views
     Route::get('/create-article', function () {
         return view('pages.create-article');
     });
+    Route::get('/article/{id}/edit', [ArticleController::class, 'showEditForm'])->name('articles.edit');
 
     Route::get('/secret', function () {
         return "You aren't supposed to be here.";
     });
 
+
+    // mutations
     Route::post('/article', [ArticleController::class, 'create']);
+    Route::patch('/article/{id}/edit', [ArticleController::class, 'edit'])->name('articles.update');
 });
 
 Route::post('/register', [UserController::class, 'register']);

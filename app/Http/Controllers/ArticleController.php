@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -29,5 +30,45 @@ class ArticleController extends Controller
 
         return redirect('/article/' . $article->id)
             ->with('success', 'Article created successfully!');
+    }
+
+    public function showEditForm($id)
+    {
+        $article = Article::findOrFail($id);
+        return view('pages.create-article', compact('article'));
+    }
+
+
+    public function edit(Request $request, $id)
+    {
+        $article = Article::findOrFail($id);
+
+        if ($article->author_id !== Auth::id()) {
+            return redirect('/articles')->withErrors('You do not have permission to edit this article.');
+        }
+
+        $request->validate([
+            'title' => 'required|max:100',
+            'content' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $article->title = $request->input('title');
+        $article->content = $request->input('content');
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('articles', 'public');
+
+            if ($article->image) {
+                Storage::disk('public')->delete($article->image);
+            }
+
+            $article->image = $imagePath;
+        }
+
+        $article->save();
+
+        return redirect('/article/' . $article->id)
+            ->with('success', 'Article updated successfully!');
     }
 }

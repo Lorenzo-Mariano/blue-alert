@@ -1,5 +1,9 @@
-<form class="shadow-1" action="/article" method="POST" enctype="multipart/form-data">
+<form class="shadow-1" action="{{ isset($article) ? route('articles.update', $article->id) : '/article' }}" method="POST"
+    enctype="multipart/form-data">
     @csrf
+    @if (isset($article))
+        @method('PATCH')
+    @endif
     <div class="parts">
         <button type="button" class="toggle-section" data-target="title-section">Title</button>
         <button type="button" class="toggle-section" data-target="content-section">Content</button>
@@ -15,7 +19,7 @@
         <div class="title-area">
             <label for="title">Title (100 characters max)</label>
             <textarea type="text" maxlength="100" id="title" placeholder="Drag the bottom right corner to resize."
-                name="title" required></textarea>
+                name="title" required>{{ old('title', $article->title ?? '') }}</textarea>
         </div>
     </section>
 
@@ -25,7 +29,7 @@
             <span>Write your thoughts and ideas here. <strong>Drag to resize</strong> and fire away!</span>
         </div>
 
-        <textarea id="content" name="content" required></textarea>
+        <textarea id="content" name="content" required>{{ old('content', $article->content ?? '') }}</textarea>
     </section>
 
     <section id="references-section" class="editor" style="display: none;">
@@ -35,12 +39,25 @@
         </div>
 
         <div id="references-container">
-            <div class="reference-group">
-                <div class="reference-item">
-                    <input type="text" placeholder="Reference link" name="references[]" class="reference-input">
-                    <button type="button" class="remove-reference"><i class="iconoir-minus-circle"></i></button>
+            @if (isset($article) && $article->references)
+                @foreach ($article->references as $reference)
+                    <div class="reference-group">
+                        <div class="reference-item">
+                            <input type="text" placeholder="Reference link" name="references[]"
+                                class="reference-input" value="{{ $reference }}">
+                            <button type="button" class="remove-reference"><i
+                                    class="iconoir-minus-circle"></i></button>
+                        </div>
+                    </div>
+                @endforeach
+            @else
+                <div class="reference-group">
+                    <div class="reference-item">
+                        <input type="text" placeholder="Reference link" name="references[]" class="reference-input">
+                        <button type="button" class="remove-reference"><i class="iconoir-minus-circle"></i></button>
+                    </div>
                 </div>
-            </div>
+            @endif
         </div>
 
         <button type="button" id="add-reference" class="editor-button">
@@ -49,23 +66,27 @@
         </button>
     </section>
 
-
     <section id="image-section" class="editor" style="display: none;">
         <div>
             <h3>Upload an image for your article</h3>
             <span>This will be used as the thumbnail for your article.</span>
         </div>
         <div class="image-upload-container" id="image-upload-container">
-            <input type="file" name="image" id="image" accept="image/*" required class="image-input">
-            <span class="upload-text">Choose an image</span>
-            <img id="preview" src="" alt="Image Preview" class="preview-img" style="display: none;">
+            <input type="file" name="image" id="image" accept="image/*"
+                {{ !isset($article) ? 'required' : '' }} class="image-input">
+            @if (!isset($article->image))
+                <span class="upload-text">Choose an image</span>
+            @endif
+            @if (isset($article->image))
+                <img id="preview" src="{{ Storage::url($article->image) }}" alt="Image Preview" class="preview-img">
+            @else
+                <img id="preview" alt="Image Preview" class="preview-img" style="display: none;">
+            @endif
         </div>
 
         <div class="buttons">
             <button type="button" id="reset-image">Reset Image</button>
-            <button type="submit">Submit Article</button>
+            <button type="submit">{{ isset($article) ? 'Update Article' : 'Submit Article' }}</button>
         </div>
     </section>
-
-
 </form>

@@ -23,6 +23,10 @@
                             {{ $article->author->last_name }} on
                             {{ $article->created_at->format('M d, Y') }}
                         </p>
+
+                        @if (Auth::check() && Auth::id() === $article->author_id)
+                            <a href="{{ route('articles.edit', $article->id) }}" class="edit-button">Edit Article</a>
+                        @endif
                     </div>
                 </div>
             </section>

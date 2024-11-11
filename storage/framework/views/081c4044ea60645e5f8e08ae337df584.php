@@ -25,6 +25,10 @@
                             <?php echo e($article->created_at->format('M d, Y')); ?>
 
                         </p>
+
+                        <?php if(Auth::check() && Auth::id() === $article->author_id): ?>
+                            <a href="<?php echo e(route('articles.edit', $article->id)); ?>" class="edit-button">Edit Article</a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </section>

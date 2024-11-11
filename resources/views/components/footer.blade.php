@@ -9,10 +9,10 @@
 
         <ul>
             <li>
-                <a href="">Privacy Policy</a>
+                <a href="/privacy">Privacy Policy</a>
             </li>
             <li>
-                <a href="">Terms & Conditions</a>
+                <a href="/privacy">Terms & Conditions</a>
             </li>
         </ul>
     </section>

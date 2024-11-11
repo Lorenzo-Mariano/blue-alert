@@ -14,7 +14,7 @@ class ArticleController extends Controller
         $request->validate([
             'title' => 'required|max:100',
             'content' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
         if ($request->hasFile('image')) {

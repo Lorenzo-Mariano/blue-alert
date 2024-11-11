@@ -31,7 +31,7 @@
                 </div>
             @else
                 <div class="msg-wrapper">
-                    <h1 class="no-articles shadow-1">No articles have been posted yet. Check back later!</h1>
+                    <h1 class="no-articles shadow-1">No articles found.</h1>
                 </div>
             @endif
 

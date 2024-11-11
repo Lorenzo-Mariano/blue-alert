@@ -8,6 +8,7 @@ use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 
 // Just pages
@@ -16,14 +17,33 @@ Route::get('/', function () {
     return view('pages.welcome');
 });
 
-Route::get('/articles/{page?}', function (int $page = 1) {
-    $articles = Article::where('is_restricted', false)
+Route::get('/articles/{page?}', function (Request $request, int $page = 1) {
+    // Start the query with unrestricted, non-banned articles
+    $articlesQuery = Article::where('is_restricted', false)
         ->whereHas('author', function ($query) {
             $query->where('is_banned', false);
-        })
-        ->latest()
-        ->paginate(6, ['*'], 'page', $page);
+        });
 
+    // Apply search filter if present
+    if ($searchTerm = $request->query('search')) {
+        $articlesQuery->where('title', 'like', '%' . $searchTerm . '%');
+    }
+
+    // Apply sorting based on filter
+    switch ($request->query('sort')) {
+        case 'most_viewed':
+            $articlesQuery->orderByDesc('reads');
+            break;
+        case 'oldest':
+            $articlesQuery->orderBy('created_at', 'asc');
+            break;
+        default: // 'most_recent' or no sorting specified
+            $articlesQuery->orderByDesc('created_at');
+            break;
+    }
+
+    // Paginate the filtered and sorted results
+    $articles = $articlesQuery->paginate(6, ['*'], 'page', $page);
     $hasArticles = $articles->isNotEmpty();
 
     return view('pages.articles', [

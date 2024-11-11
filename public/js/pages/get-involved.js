@@ -28,6 +28,9 @@ window.addEventListener("mousedown", (e) => {
 async function register(event) {
     event.preventDefault();
 
+    signUpStatus.innerHTML = "Registering...";
+    signUpStatus.className = "ongoing";
+
     const formData = new FormData(signUpForm);
     const data = Object.fromEntries(formData);
 
@@ -79,6 +82,9 @@ async function register(event) {
 
 async function login(event) {
     event.preventDefault();
+
+    loginStatus.innerHTML = "Logging in...";
+    loginStatus.className = "ongoing";
 
     const formData = new FormData(loginForm);
     const data = Object.fromEntries(formData);

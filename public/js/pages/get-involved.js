@@ -12,6 +12,7 @@ function openSignUp() {
 
 function openLogin() {
     loginModal.showModal();
+    loginStatus.innerHTML = "";
 }
 
 window.addEventListener("mousedown", (e) => {
@@ -41,19 +42,33 @@ async function register(event) {
         });
 
         const result = await response.json();
-        signUpStatus.textContent = result.message;
 
         if (response.ok) {
-            signUpStatus.textContent += ". Redirecting to articles page...";
+            signUpStatus.textContent =
+                result.message + ". Redirecting to login..."; // Successful registration
             signUpStatus.className = "success";
             signUpForm.reset();
-
             setTimeout(() => {
                 signUpModal.close();
                 openLogin();
             }, 2000);
         } else {
+            console.log("Response not OK");
+            console.log(result);
+
+            // Validation error or other failure
             signUpStatus.className = "error";
+            // If validation fails, show the error messages
+            signUpStatus.innerHTML = "";
+
+            // The error, if present, is an object with each key holding an array of error strings.
+            // is this right then?
+            Object.entries(result).forEach(([key, errors]) => {
+                console.log(errors);
+                errors.forEach((error) => {
+                    signUpStatus.innerHTML += `<p>${error}</p>`;
+                });
+            });
         }
     } catch (error) {
         console.error("Error:", error);
@@ -79,18 +94,33 @@ async function login(event) {
         });
 
         const result = await response.json();
-        loginStatus.textContent = result.message;
 
         if (response.ok) {
-            loginStatus.textContent += ". Redirecting to articles page...";
+            loginStatus.textContent =
+                result.message + ". Redirecting to articles page...";
             loginStatus.className = "success";
             loginForm.reset();
-
             setTimeout(() => {
                 window.location.href = "/articles";
             }, 500);
         } else {
+            // Validation error or other failure
+            console.log("Response not OK");
+            console.log(result);
+
             loginStatus.className = "error";
+            // If validation fails, show the error messages
+            loginStatus.innerHTML = "";
+
+            if (result.message) {
+                loginStatus.innerHTML = result.message;
+            } else {
+                for (let key in result.errors) {
+                    result.errors[key].forEach((error) => {
+                        loginStatus.innerHTML += `<p>${error}</p>`;
+                    });
+                }
+            }
         }
     } catch (error) {
         console.error("Error:", error);

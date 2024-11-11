@@ -92,3 +92,18 @@ button.login {
 .error {
   color: #ff6347;
 }
+
+.status.error {
+  color: red;
+  font-size: 14px;
+}
+
+.status.success {
+  color: green;
+  font-size: 14px;
+}
+
+.status p {
+  margin: 0;
+  padding: 5px 0;
+}

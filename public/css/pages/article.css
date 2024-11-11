@@ -27,6 +27,12 @@ article {
   overflow: hidden;
 }
 
+.restriction-message {
+  margin-top: 1rem;
+  color: #ffc8be;
+  font-weight: bold;
+}
+
 .background-image {
   width: 100%;
   height: 100%;
@@ -74,10 +80,10 @@ article {
   justify-content: space-between;
 }
 
-div.edit {
+div.edit, div.admin-option {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.25rem;
 }
 
 .article-content {
@@ -91,7 +97,7 @@ div.edit {
   color: #000;
 }
 
-.article-content .back-button:hover {
+.article-content .back-button:hover, .article-content .div.edit, form.ban-user-form>div:hover, form.restrict-article-form>div:hover {
   color: #3498db;
 }
 

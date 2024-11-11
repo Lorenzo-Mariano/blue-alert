@@ -38,7 +38,6 @@ class ArticleController extends Controller
         return view('pages.create-article', compact('article'));
     }
 
-
     public function edit(Request $request, $id)
     {
         $article = Article::findOrFail($id);
@@ -75,7 +74,7 @@ class ArticleController extends Controller
     {
         $article = Article::findOrFail($id);
 
-      
+
         if ($article->author_id !== Auth::id()) {
             return redirect('/articles')->withErrors('You do not have permission to delete this article.');
         }
@@ -89,5 +88,16 @@ class ArticleController extends Controller
         $article->delete();
 
         return redirect('/articles')->with('success', 'Article deleted successfully!');
+    }
+
+    public function restrict($id, Request $request)
+    {
+        $article = Article::findOrFail($id);
+
+        $article->is_restricted = true;
+        $article->restriction_reason = $request->input('reason', 'No reason provided');
+        $article->save();
+
+        return redirect()->to("/article/{$id}")->with('status', 'Article has been restricted.');
     }
 }

@@ -23,6 +23,13 @@
                             {{ $article->author->last_name }} on
                             {{ $article->created_at->format('M d, Y') }}
                         </p>
+
+                        @if ($article->is_restricted)
+                            <div class="restriction-message">
+                                <p>This article is restricted. It is not accessible to users other than the author and
+                                    the admins.</p>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </section>
@@ -30,32 +37,55 @@
             <section class="article-content">
                 <div class="links">
                     <a href="/articles" class="back-button">← Back to Articles</a>
+
+                    @if (Auth::check() && Auth::user()->is_admin)
+                        <div class="admin-option">
+                            <i class="iconoir-minus-hexagon"></i>
+                            <a href="{{ route('admin.reasonForm', ['action' => 'banUser', 'id' => $article->author_id]) }}"
+                                class="ban-user-button">
+                                Ban User
+                            </a>
+                        </div>
+
+                        <div class="admin-option">
+                            <i class="iconoir-lock"></i>
+                            <a href="{{ route('admin.reasonForm', ['action' => 'restrictPost', 'id' => $article->id]) }}"
+                                class="restrict-post-button">
+                                Restrict Post
+                            </a>
+                        </div>
+                    @endif
+
                     @if (Auth::check() && Auth::id() === $article->author_id)
                         <div class="edit">
                             <i class="iconoir-edit-pencil"></i>
                             <a href="{{ route('articles.edit', $article->id) }}" class="edit-button">Edit Article</a>
                         </div>
-            
-        
-                        <form action="{{ route('articles.destroy', $article->id) }}" method="POST" style="display:inline;">
+
+                        <form action="{{ route('articles.destroy', $article->id) }}" method="POST"
+                            style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="delete-button" onclick="return confirm('Are you sure you want to delete this article?')">
+                            <button type="submit" class="delete-button"
+                                onclick="return confirm('Are you sure you want to delete this article?')">
                                 <i class="iconoir-trash"></i> Delete Article
                             </button>
                         </form>
                     @endif
                 </div>
+
+
                 <div class="article-body">
                     {!! nl2br(e($article->content)) !!}
                 </div>
-            
+
                 @if ($article->references && $article->references->isNotEmpty())
                     <div class="article-references">
                         <h3>References:</h3>
                         <ul>
                             @foreach ($article->references as $reference)
-                                <li><a href="{{ $reference->url }}" target="_blank">{{ $reference->description }}</a></li>
+                                <li><a href="{{ $reference->url }}" target="_blank">{{ $reference->description }}</a>
+                                </li>
                             @endforeach
                         </ul>
                     </div>

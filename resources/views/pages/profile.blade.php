@@ -12,7 +12,7 @@
 <body>
     @include('components.navbar')
     <main>
-        <div class="profile-card shadow-1">
+        <div class="profile-card">
             <h1>Profile Information</h1>
             <section>
                 <p><strong>First Name:</strong> {{ $user->first_name }}</p>

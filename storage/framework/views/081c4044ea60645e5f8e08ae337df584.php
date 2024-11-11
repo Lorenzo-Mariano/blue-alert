@@ -25,6 +25,13 @@
                             <?php echo e($article->created_at->format('M d, Y')); ?>
 
                         </p>
+
+                        <?php if($article->is_restricted): ?>
+                            <div class="restriction-message">
+                                <p>This article is restricted. It is not accessible to users other than the author and
+                                    the admins.</p>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </section>
@@ -32,13 +39,44 @@
             <section class="article-content">
                 <div class="links">
                     <a href="/articles" class="back-button">← Back to Articles</a>
+
+                    <?php if(Auth::check() && Auth::user()->is_admin): ?>
+                        <div class="admin-option">
+                            <i class="iconoir-minus-hexagon"></i>
+                            <a href="<?php echo e(route('admin.reasonForm', ['action' => 'banUser', 'id' => $article->author_id])); ?>"
+                                class="ban-user-button">
+                                Ban User
+                            </a>
+                        </div>
+
+                        <div class="admin-option">
+                            <i class="iconoir-lock"></i>
+                            <a href="<?php echo e(route('admin.reasonForm', ['action' => 'restrictPost', 'id' => $article->id])); ?>"
+                                class="restrict-post-button">
+                                Restrict Post
+                            </a>
+                        </div>
+                    <?php endif; ?>
+
                     <?php if(Auth::check() && Auth::id() === $article->author_id): ?>
                         <div class="edit">
                             <i class="iconoir-edit-pencil"></i>
                             <a href="<?php echo e(route('articles.edit', $article->id)); ?>" class="edit-button">Edit Article</a>
                         </div>
+
+                        <form action="<?php echo e(route('articles.destroy', $article->id)); ?>" method="POST"
+                            style="display:inline;">
+                            <?php echo csrf_field(); ?>
+                            <?php echo method_field('DELETE'); ?>
+                            <button type="submit" class="delete-button"
+                                onclick="return confirm('Are you sure you want to delete this article?')">
+                                <i class="iconoir-trash"></i> Delete Article
+                            </button>
+                        </form>
                     <?php endif; ?>
                 </div>
+
+
                 <div class="article-body">
                     <?php echo nl2br(e($article->content)); ?>
 

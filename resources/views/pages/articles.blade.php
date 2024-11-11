@@ -15,7 +15,7 @@
 
     <main>
         <div class="left-panel">
-            @if (Auth::check())
+            @if (Auth::check() && !Auth::user()->is_banned)
                 @include('components.article-controls')
                 <hr>
             @endif

@@ -1,7 +1,7 @@
 @vite(['resources/css/app.css', 'public/css/components/navbar.css'])
 
 
-{{-- on the right end of the bar, add the user's firstname. --}}
+{{-- Next I want a new link that says "Admin Dashboard". It should only be accessible to admins ofc. --}}
 <nav class="navbar">
     <section class="main-links">
         <a href="/" class="{{ Request::is('/') ? 'active' : '' }}">Home</a>
@@ -10,7 +10,11 @@
         <a href="/get-involved" class="{{ Request::is('get-involved') ? 'active' : '' }}">Get Involved</a>
     </section>
 
-    <a class="profile-link" href="{{ Auth::check() ? '/profile' : '#' }}">
+    @if (Auth::check() && Auth::user()->is_admin)
+        <a href="/admin/dashboard" class="{{ Request::is('admin/dashboard') ? 'active' : '' }}">Admin Dashboard</a>
+    @endif
+
+    <a class="profile-link" href="{{ Auth::check() ? '/profile' : '/get-involved' }}">
         {{ Auth::check() ? Auth::user()->first_name . ' ' . Auth::user()->last_name : 'Not logged in.' }}
     </a>
 </nav>

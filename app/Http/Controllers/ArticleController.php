@@ -71,4 +71,23 @@ class ArticleController extends Controller
         return redirect('/article/' . $article->id)
             ->with('success', 'Article updated successfully!');
     }
+    public function destroy($id)
+    {
+        $article = Article::findOrFail($id);
+
+      
+        if ($article->author_id !== Auth::id()) {
+            return redirect('/articles')->withErrors('You do not have permission to delete this article.');
+        }
+
+
+        if ($article->image) {
+            Storage::disk('public')->delete($article->image);
+        }
+
+
+        $article->delete();
+
+        return redirect('/articles')->with('success', 'Article deleted successfully!');
+    }
 }

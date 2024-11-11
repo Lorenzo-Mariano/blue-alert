@@ -35,19 +35,27 @@
                             <i class="iconoir-edit-pencil"></i>
                             <a href="{{ route('articles.edit', $article->id) }}" class="edit-button">Edit Article</a>
                         </div>
+            
+        
+                        <form action="{{ route('articles.destroy', $article->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="delete-button" onclick="return confirm('Are you sure you want to delete this article?')">
+                                <i class="iconoir-trash"></i> Delete Article
+                            </button>
+                        </form>
                     @endif
                 </div>
                 <div class="article-body">
                     {!! nl2br(e($article->content)) !!}
                 </div>
-
+            
                 @if ($article->references && $article->references->isNotEmpty())
                     <div class="article-references">
                         <h3>References:</h3>
                         <ul>
                             @foreach ($article->references as $reference)
-                                <li><a href="{{ $reference->url }}" target="_blank">{{ $reference->description }}</a>
-                                </li>
+                                <li><a href="{{ $reference->url }}" target="_blank">{{ $reference->description }}</a></li>
                             @endforeach
                         </ul>
                     </div>

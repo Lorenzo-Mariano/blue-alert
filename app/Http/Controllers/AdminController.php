@@ -19,7 +19,7 @@ class AdminController extends Controller
         $restrictedPosts = Article::where('is_restricted', true)->get();
         $users = User::all();
 
-        return view('pages.admin.dashboard', compact('bannedUsers', 'restrictedPosts', 'users'));
+        return view('pages.admin.dashboard.dashboard', compact('bannedUsers', 'restrictedPosts', 'users'));
     }
 
     public function unrestrictArticle($id)

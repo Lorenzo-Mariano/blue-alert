@@ -11,6 +11,7 @@
 
 <body>
     @include('components.navbar')
+    {{-- @include('components.dashboard-links') --}}
     <main>
         <section class="banned-users">
             <div>
@@ -106,7 +107,7 @@
                             <td>
                                 <form action="{{ route('admin.toggleAdmin', $user->id) }}" method="POST">
                                     @csrf
-                                    <button
+                                    <button class="{{ $user->is_admin ? 'revoke' : 'grant' }}"
                                         type="submit">{{ $user->is_admin ? 'Revoke Admin' : 'Grant Admin' }}</button>
                                 </form>
                             </td>

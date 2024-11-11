@@ -17,6 +17,9 @@ Route::get('/', function () {
 
 Route::get('/articles/{page?}', function (int $page = 1) {
     $articles = Article::where('is_restricted', false)
+        ->whereHas('author', function ($query) {
+            $query->where('is_banned', false);
+        })
         ->latest()
         ->paginate(6, ['*'], 'page', $page);
 

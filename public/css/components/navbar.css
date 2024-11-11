@@ -17,13 +17,20 @@ nav a {
   transition: color 0.3s ease;
 }
 
-
 nav a.active {
   border-bottom: 2px solid #ffffff;
   padding-bottom: 5px;
-
 }
 
 nav a.active:hover {
   border-bottom: 2px solid #ffffff;
+}
+
+nav .logo {
+  position: absolute;
+  left: 20px; /* Adjust as necessary */
+  top: 4%;
+  transform: translateY(-50%);
+  height: 40px; /* Set your desired height */
+  width: auto; /* Maintains aspect ratio */
 }

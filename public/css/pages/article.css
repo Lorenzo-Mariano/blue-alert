@@ -69,6 +69,17 @@ article {
   font-size: 1.2rem;
 }
 
+.links {
+  display: flex;
+  justify-content: space-between;
+}
+
+div.edit {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .article-content {
   padding: 1rem;
   background-color: #fff;

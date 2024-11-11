@@ -23,16 +23,20 @@
                             {{ $article->author->last_name }} on
                             {{ $article->created_at->format('M d, Y') }}
                         </p>
-
-                        @if (Auth::check() && Auth::id() === $article->author_id)
-                            <a href="{{ route('articles.edit', $article->id) }}" class="edit-button">Edit Article</a>
-                        @endif
                     </div>
                 </div>
             </section>
 
             <section class="article-content">
-                <a href="/articles" class="back-button">← Back to Articles</a>
+                <div class="links">
+                    <a href="/articles" class="back-button">← Back to Articles</a>
+                    @if (Auth::check() && Auth::id() === $article->author_id)
+                        <div class="edit">
+                            <i class="iconoir-edit-pencil"></i>
+                            <a href="{{ route('articles.edit', $article->id) }}" class="edit-button">Edit Article</a>
+                        </div>
+                    @endif
+                </div>
                 <div class="article-body">
                     {!! nl2br(e($article->content)) !!}
                 </div>

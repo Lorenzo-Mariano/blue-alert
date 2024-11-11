@@ -48,6 +48,10 @@ Route::get('/hail-Mary', function () {
     return response()->json($files);
 });
 
+Route::get('/privacy', function () {
+    return view('pages.privacy');
+});
+
 // Functional stuff
 
 Route::middleware(['auth'])->group(function () {

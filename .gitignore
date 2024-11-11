@@ -4,6 +4,8 @@
 /public/hot
 /public/storage
 /storage/*.key
+/storage/app/public/articles/*
+/storage/framework/*
 /vendor
 .env
 .env.backup
@@ -18,3 +20,5 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+_ide_helper.php
+_ide_helper_models.php

@@ -1,0 +1,28 @@
+nav.paginator {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  gap: 0.5rem;
+  padding: 0.5rem;
+
+  font-size: 2rem;
+  border-top: 1px solid #aaaaaa81;
+  background-color: #fff;
+}
+
+nav.paginator a {
+  display: flex;
+  align-items: center;
+  color: #000;
+}
+
+nav.paginator a:visited {
+  color: #000;
+}
+
+nav.paginator span.active {
+  font-weight: bold;
+  color: #0f457a;
+}

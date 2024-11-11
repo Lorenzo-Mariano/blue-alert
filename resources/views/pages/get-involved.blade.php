@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Blue Alert - Prevent Ocean Waste</title>
+    <title>Blue Alert - Fight Water Pollution</title>
     @vite(['resources/css/app.css', 'public/css/pages/get-involved.css'])
-    <script src="{{ asset('js/get-involved.js') }}" defer></script>
+    <script src="{{ asset('js/pages/get-involved.js') }}" defer></script>
 </head>
 
 <body>
@@ -33,8 +33,10 @@
         </form>
     </dialog>
     <dialog class="login-modal">
-        <form class="login-form">
+        <form class="login-form" onsubmit="login(event)">
+            @csrf
             <h1>Login</h1>
+            <span class="status"></span>
             <label for="email">Email</label>
             <input name="email" type="email" required>
             <label for="password">Password</label>
@@ -46,7 +48,7 @@
         </form>
     </dialog>
     <main>
-        <div class="hero" action="">
+        <div class="hero">
             <header>
                 <h1>Blue Alert</h1>
                 <span>Want to join us? Sign up to interact with blogs and more!</span>

@@ -2,10 +2,10 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    @vite(['resources/css/app.css', 'public/css/pages/articles.css', 'public/css/components/article-filters.css', 'public/css/components/article-preview.css'])
+    @vite(['resources/css/app.css', 'public/css/pages/articles.css'])
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Blue Alert - Prevent Ocean Waste</title>
+    <title>Blue Alert - Fight Water Pollution</title>
 </head>
 
 <body>
@@ -14,6 +14,7 @@
     </header>
 
     <main>
+<<<<<<< HEAD
                 
 
         <section class="blogs">
@@ -56,6 +57,34 @@
             <a href="/" class="pagination-link">03</a>
             <a href="/" class="pagination-link">04</a>
         </section>
+=======
+        <div class="left-panel">
+            @if (Auth::check())
+                @include('components.article-controls')
+                <hr>
+            @endif
+            @include('components.article-filters')
+        </div>
+
+        <div class="content">
+            @if ($hasArticles)
+                <div class="blogs">
+                    @foreach ($articles as $article)
+                        @include('components.article-preview', ['article' => $article])
+                    @endforeach
+                </div>
+            @else
+                <div class="msg-wrapper">
+                    <h1 class="no-articles shadow-1">No articles have been posted yet. Check back later!</h1>
+                </div>
+            @endif
+
+            <div class="pagination">
+                {{ $articles->links() }}
+            </div>
+
+        </div>
+>>>>>>> b707c652419470b666c6083dbc0b02b8bd89feb1
     </main>
 
 

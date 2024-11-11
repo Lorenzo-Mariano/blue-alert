@@ -36,7 +36,7 @@
             </li>
         </ul>
     </section>
-    <section class="contact-us">
+    {{-- <section class="contact-us">
         <h2>Contact Us</h2>
         <div class="contacts">
             <i class="iconoir-mail"></i>
@@ -46,5 +46,5 @@
             <i class="iconoir-map-pin"></i>
             <span>PHINMA AU South, Maharlika Highway</span>
         </div>
-    </section>
+    </section> --}}
 </footer>

@@ -65,6 +65,8 @@ Route::middleware(['auth'])->group(function () {
     // mutations
     Route::post('/article', [ArticleController::class, 'create']);
     Route::patch('/article/{id}/edit', [ArticleController::class, 'edit'])->name('articles.update');
+
+    Route::delete('/article/{id}', [ArticleController::class, 'destroy'])->name('articles.destroy');
 });
 
 Route::post('/register', [UserController::class, 'register']);

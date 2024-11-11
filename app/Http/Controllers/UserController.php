@@ -67,24 +67,6 @@ class UserController extends Controller
         ], 401);
     }
 
-    public function banUser(Request $request, User $user)
-    {
-        if (Auth::user()->is_admin) {
-            $request->validate([
-                'reason' => 'required|string|max:255',
-            ]);
-
-            $user->is_banned = true;
-            $user->ban_reason = $request->input('reason', 'No reason provided');
-            $user->save();
-
-            return redirect('/articles')->with('status', 'User has been banned successfully.');
-        }
-
-        return redirect()->back()->with('error', 'Unauthorized action.');
-    }
-
-
     public function showReasonForm(Request $request)
     {
         $action = $request->query('action');

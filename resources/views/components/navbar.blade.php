@@ -14,7 +14,8 @@
         <a href="/admin/dashboard" class="{{ Request::is('admin/dashboard') ? 'active' : '' }}">Admin Dashboard</a>
     @endif
 
-    <a class="profile-link" href="{{ Auth::check() ? '/profile' : '/get-involved' }}">
+    <a class="profile-link {{ Request::is('/profile') ? 'active' : '' }}"
+        href="{{ Auth::check() ? '/profile' : '/get-involved' }}">
         {{ Auth::check() ? Auth::user()->first_name . ' ' . Auth::user()->last_name : 'Not logged in.' }}
     </a>
 </nav>

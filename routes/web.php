@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\IsAdmin;
@@ -30,7 +31,6 @@ Route::get('/articles/{page?}', function (int $page = 1) {
         'hasArticles' => $hasArticles,
     ]);
 });
-
 
 Route::get('/article/{id}', function (string $id) {
     $article = Article::with(['author'])->findOrFail($id);
@@ -88,16 +88,21 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::middleware(['auth', IsAdmin::class])->group(function () {
-    Route::post('/user/{user}/ban', [UserController::class, 'banUser'])->name('admin.banUser');
-    Route::post('/articles/{id}/restrict', [ArticleController::class, 'restrict'])->name('articles.restrict');
-
     Route::get('/reason-form', [UserController::class, 'showReasonForm'])->name('admin.reasonForm');
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+
+    Route::post('/admin/user/{user}/update-admin-status', [AdminController::class, 'updateAdminStatus'])->name('admin.updateAdminStatus');
+    Route::post('/user/{user}/toggle-admin', [AdminController::class, 'toggleAdmin'])->name('admin.toggleAdmin');
+
+    Route::post('/user/{user}/ban', [AdminController::class, 'banUser'])->name('admin.banUser');
+    Route::post('/user/{user}/unban', [AdminController::class, 'unbanUser'])->name('admin.unbanUser');
+
+    Route::post('/articles/{id}/restrict', [ArticleController::class, 'restrict'])->name('articles.restrict');
+    Route::post('/articles/{id}/unrestrict', [AdminController::class, 'unrestrictArticle'])->name('admin.unrestrictArticle');
 });
 
 Route::post('/register', [UserController::class, 'register']);
-
 Route::post('/login', [UserController::class, 'login']);
-
 Route::post('/logout', function () {
     Auth::logout();
     return redirect('/');

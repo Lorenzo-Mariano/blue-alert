@@ -11,8 +11,12 @@
 
 <body>
     @include('components.navbar')
-    {{-- @include('components.dashboard-links') --}}
+
     <main>
+        @if (Auth::user()->is_banned)
+            <h2 class="admin-banned-msg">You are currently banned. You can view the dashboard but you cannot change post
+                or user settings.</h2>
+        @endif
         <section class="banned-users">
             <div>
                 <h2>Banned Users</h2>
@@ -38,7 +42,10 @@
                             <td>
                                 <form action="{{ route('admin.unbanUser', $user->id) }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="unban-button">Unban</button>
+                                    <button type="submit" class="unban-button"
+                                        @if (Auth::user()->is_banned) disabled @endif>
+                                        Unban
+                                    </button>
                                 </form>
                             </td>
                         </tr>
@@ -72,7 +79,10 @@
                             <td>
                                 <form action="{{ route('admin.unrestrictArticle', $article->id) }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="unrestrict-button">Unrestrict</button>
+                                    <button type="submit" class="unrestrict-button"
+                                        @if (Auth::user()->is_banned) disabled @endif>
+                                        Unrestrict
+                                    </button>
                                 </form>
                             </td>
                         </tr>
@@ -80,7 +90,6 @@
                 </tbody>
             </table>
         </section>
-
 
         <section class="user-perms">
             <div>
@@ -107,8 +116,10 @@
                             <td>
                                 <form action="{{ route('admin.toggleAdmin', $user->id) }}" method="POST">
                                     @csrf
-                                    <button class="{{ $user->is_admin ? 'revoke' : 'grant' }}"
-                                        type="submit">{{ $user->is_admin ? 'Revoke Admin' : 'Grant Admin' }}</button>
+                                    <button class="{{ $user->is_admin ? 'revoke' : 'grant' }}" type="submit"
+                                        @if (Auth::user()->is_banned) disabled @endif>
+                                        {{ $user->is_admin ? 'Revoke Admin' : 'Grant Admin' }}
+                                    </button>
                                 </form>
                             </td>
                         </tr>
@@ -117,6 +128,7 @@
             </table>
         </section>
     </main>
+
     @include('components.footer')
 </body>
 

@@ -11,10 +11,6 @@ class AdminController extends Controller
 {
     public function dashboard()
     {
-        if (Auth::user()->is_banned) {
-            return view('pages.admin.you-are-banned');
-        }
-
         $bannedUsers = User::where('is_banned', true)->get();
         $restrictedPosts = Article::where('is_restricted', true)->get();
         $users = User::all();

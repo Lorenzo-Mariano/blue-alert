@@ -18,8 +18,8 @@
         </div>
         <div class="title-area">
             <label for="title">Title (100 characters max)</label>
-            <textarea type="text" maxlength="100" id="title" placeholder="Drag the bottom right corner to resize."
-                name="title" required>{{ old('title', $article->title ?? '') }}</textarea>
+            <textarea type="text" maxlength="100" id="title" rows="6"
+                placeholder="Drag the bottom right corner to resize." name="title" required>{{ old('title', $article->title ?? '') }}</textarea>
         </div>
     </section>
 
@@ -29,7 +29,7 @@
             <span>Write your thoughts and ideas here. <strong>Drag to resize</strong> and fire away!</span>
         </div>
 
-        <textarea id="content" name="content" required>{{ old('content', $article->content ?? '') }}</textarea>
+        <textarea id="content" name="content" rows="20" required>{{ old('content', $article->content ?? '') }}</textarea>
     </section>
 
     <section id="references-section" class="editor" style="display: none;">

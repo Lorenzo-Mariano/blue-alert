@@ -17,6 +17,7 @@
             <h2 class="admin-banned-msg">You are currently banned. You can view the dashboard but you cannot change post
                 or user settings.</h2>
         @endif
+
         <section class="banned-users">
             <div>
                 <h2>Banned Users</h2>
@@ -36,7 +37,11 @@
                 <tbody>
                     @foreach ($bannedUsers as $user)
                         <tr>
-                            <td>{{ $user->first_name }} {{ $user->last_name }}</td>
+                            <td>
+                                <a href="/user/{{ $user->id }}">
+                                    {{ $user->first_name }} {{ $user->last_name }}
+                                </a>
+                            </td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->ban_reason }}</td>
                             <td>
@@ -73,8 +78,16 @@
                 <tbody>
                     @foreach ($restrictedPosts as $article)
                         <tr>
-                            <td>{{ $article->title }}</td>
-                            <td>{{ $article->author->first_name }} {{ $article->author->last_name }}</td>
+                            <td>
+                                <a href="/article/{{ $article->id }}">
+                                    {{ $article->title }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/user/{{ $article->author->id }}">
+                                    {{ $article->author->first_name }} {{ $article->author->last_name }}
+                                </a>
+                            </td>
                             <td>{{ $article->restriction_reason }}</td>
                             <td>
                                 <form action="{{ route('admin.unrestrictArticle', $article->id) }}" method="POST">
@@ -110,7 +123,11 @@
                 <tbody>
                     @foreach ($users as $user)
                         <tr>
-                            <td>{{ $user->first_name }} {{ $user->last_name }}</td>
+                            <td>
+                                <a href="/user/{{ $user->id }}">
+                                    {{ $user->first_name }} {{ $user->last_name }}
+                                </a>
+                            </td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->is_admin ? 'Admin' : 'User' }}</td>
                             <td>

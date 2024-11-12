@@ -40,7 +40,7 @@
 
             <section class="article-content">
                 <div class="links">
-                    <a href="/articles" class="back-button">← Back to Articles</a>
+                    <a href="javascript:void(0);" onclick="history.back()" class="back-button">← Back</a>
 
                     <?php if(Auth::check() && Auth::user()->is_admin && Auth::user()->id != $article->author->id): ?>
                         <div class="admin-option">
